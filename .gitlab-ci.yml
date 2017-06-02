@@ -15,7 +15,7 @@ stages:
 
   script:
   - docker pull ubuntu:16.04
-  - docker build -t konecnyjakub/wesnoth -f $VERSION/Dockerfile .
+  - docker build -t konecnyjakub/wesnoth -f $VERSION/Dockerfile $VERSION
   - docker tag konecnyjakub/wesnoth konecnyjakub/wesnoth:$VERSION
   - docker push konecnyjakub/wesnoth:$VERSION
 
@@ -32,7 +32,7 @@ stages:
 
   script:
   - docker pull ubuntu:16.04
-  - docker build -t konecnyjakub/wesnoth -f $VERSION/Dockerfile .
+  - docker build -t konecnyjakub/wesnoth -f $VERSION/Dockerfile $VERSION
 
   except:
     - master@konecnyjakub/wesnoth-docker
