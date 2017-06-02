@@ -20,4 +20,6 @@ RUN apt-get autoclean -y
 RUN apt-get autoremove -y
 RUN rm -rf /var/lib/log/* /tmp/* /var/tmp/*
 
+ADD download_addon /usr/local/bin/
+
 WORKDIR ${USER_HOME}/.local/share/wesnoth/1.13/data/add-ons
