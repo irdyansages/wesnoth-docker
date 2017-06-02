@@ -18,5 +18,6 @@ RUN apt install -y --no-install-recommends --allow-unauthenticated \
 RUN apt-get clean -y
 RUN apt-get autoclean -y
 RUN apt-get autoremove -y
+RUN rm -rf /var/lib/log/* /tmp/* /var/tmp/*
 
 WORKDIR ${USER_HOME}/.local/share/wesnoth/1.13/data/add-ons
