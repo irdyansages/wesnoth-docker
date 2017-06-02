@@ -18,6 +18,9 @@ stages:
   - docker tag konecnyjakub/wesnoth konecnyjakub/wesnoth:$VERSION
   - docker push konecnyjakub/wesnoth:$VERSION
 
+  only:
+    - master@konecnyjakub/wesnoth-docker
+
 wesnoth112:
   <<: *deploy_job
   variables:
