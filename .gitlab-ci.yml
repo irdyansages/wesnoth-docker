@@ -1,28 +1,29 @@
 stages:
 - deploy
 
-wesnoth112:
+.job_template: &deploy_job
   stage: deploy
+
   image: docker:latest
+
   services:
   - docker:dind
+
   before_script:
   - docker login --username $DOCKER_HUB_USERNAME --password $DOCKER_HUB_PASSWORD
+
   script:
   - docker pull ubuntu:16.04
-  - docker build -t konecnyjakub/wesnoth -f 1.12/Dockerfile .
-  - docker tag konecnyjakub/wesnoth konecnyjakub/wesnoth:1.12
-  - docker push konecnyjakub/wesnoth:1.12
+  - docker build -t konecnyjakub/wesnoth -f $VERSION/Dockerfile .
+  - docker tag konecnyjakub/wesnoth konecnyjakub/wesnoth:$VERSION
+  - docker push konecnyjakub/wesnoth:$VERSION
+
+wesnoth112:
+  <<: *deploy_job
+  variables:
+    VERSION: "1.12"
 
 wesnoth113:
-  stage: deploy
-  image: docker:latest
-  services:
-  - docker:dind
-  before_script:
-  - docker login --username $DOCKER_HUB_USERNAME --password $DOCKER_HUB_PASSWORD
-  script:
-  - docker pull ubuntu:16.04
-  - docker build -t konecnyjakub/wesnoth -f 1.13/Dockerfile .
-  - docker tag konecnyjakub/wesnoth konecnyjakub/wesnoth:1.13
-  - docker push konecnyjakub/wesnoth:1.13
+  <<: *deploy_job
+  variables:
+    VERSION: "1.13"
