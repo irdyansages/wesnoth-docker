@@ -1,4 +1,5 @@
 stages:
+- build
 - deploy
 
 .job_template: &deploy_job
@@ -21,12 +22,37 @@ stages:
   only:
     - master@konecnyjakub/wesnoth-docker
 
-wesnoth112:
+.job_template: &build_job
+  stage: build
+
+  image: docker:latest
+
+  services:
+  - docker:dind
+
+  script:
+  - docker pull ubuntu:16.04
+  - docker build -t konecnyjakub/wesnoth -f $VERSION/Dockerfile .
+
+  except:
+    - master@konecnyjakub/wesnoth-docker
+
+deploy:wesnoth1.12:
   <<: *deploy_job
   variables:
     VERSION: "1.12"
 
-wesnoth113:
+deploy:wesnoth1.13:
   <<: *deploy_job
+  variables:
+    VERSION: "1.13"
+
+build:wesnoth1.12:
+  <<: *build_job
+  variables:
+    VERSION: "1.12"
+
+build:wesnoth1.13:
+  <<: *build_job
   variables:
     VERSION: "1.13"
