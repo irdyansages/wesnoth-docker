@@ -2,6 +2,7 @@ FROM ubuntu:16.04
 
 MAINTAINER Jakub Konečný <jakub.konecny2@centrum.cz>
 
+ENV TERM xterm
 ENV USER_UID 1000
 ENV USER_NAME me
 ENV USER_HOME /home/me
