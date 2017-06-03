@@ -7,7 +7,7 @@ ENV USER_UID 1000
 ENV USER_NAME me
 ENV USER_HOME /home/me
 
-RUN echo "deb http://ppa.launchpad.net/vincent-c/wesnoth/ubuntu xenial main" > /etc/apt/sources.list.d/php.list
+RUN echo "deb http://ppa.launchpad.net/vincent-c/wesnoth/ubuntu xenial main" > /etc/apt/sources.list.d/wesnoth.list
 RUN useradd -ms /bin/bash -u $USER_UID $USER_NAME
 RUN apt-get update && apt-get dist-upgrade -y && \
     apt install -y --no-install-recommends --allow-unauthenticated \
