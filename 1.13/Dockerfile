@@ -20,7 +20,7 @@ RUN apt-get autoclean -y
 RUN apt-get autoremove -y
 RUN rm -rf /var/lib/log/* /tmp/* /var/tmp/*
 
-COPY download_addon /usr/local/bin/
+COPY scripts/* /usr/local/bin/
 
 USER me
 
