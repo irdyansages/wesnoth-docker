@@ -35,22 +35,12 @@ stages:
   except:
     - master@konecnyjakub/wesnoth-docker
 
-deploy:wesnoth1.12:
+deploy:wesnoth1.14:
   <<: *deploy_job
   variables:
-    VERSION: "1.12"
+    VERSION: "1.14"
 
-deploy:wesnoth1.13:
-  <<: *deploy_job
-  variables:
-    VERSION: "1.13"
-
-build:wesnoth1.12:
+build:wesnoth1.14:
   <<: *build_job
   variables:
-    VERSION: "1.12"
-
-build:wesnoth1.13:
-  <<: *build_job
-  variables:
-    VERSION: "1.13"
+    VERSION: "1.14"

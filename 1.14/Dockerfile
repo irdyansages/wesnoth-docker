@@ -7,12 +7,12 @@ ENV USER_UID 1000
 ENV USER_NAME me
 ENV USER_HOME /home/me
 
-RUN echo "deb http://ppa.launchpad.net/pkg-games/wesnoth-devel/ubuntu xenial main" > /etc/apt/sources.list.d/wesnoth.list
+RUN echo "deb http://ppa.launchpad.net/vincent-c/wesnoth/ubuntu xenial main" > /etc/apt/sources.list.d/wesnoth.list
 RUN useradd -ms /bin/bash -u $USER_UID $USER_NAME
 RUN apt-get update && apt-get dist-upgrade -y && \
     apt install -y --no-install-recommends --allow-unauthenticated \
-        wesnoth-1.13-core \
-        wesnoth-1.13-tools \
+        wesnoth-1.14-core \
+        wesnoth-1.14-tools \
         python3 \
         python3-enchant
 RUN apt-get clean -y
@@ -24,4 +24,4 @@ COPY scripts/* /usr/local/bin/
 
 USER me
 
-WORKDIR ${USER_HOME}/.local/share/wesnoth/1.13/data/add-ons
+WORKDIR ${USER_HOME}/.local/share/wesnoth/1.14/data/add-ons

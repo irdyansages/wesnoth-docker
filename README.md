@@ -5,7 +5,7 @@ Battle for Wesnoth Docker Image for UMC creators. Contains just the core and too
 
 OS: Ubuntu 16.04
 
-Wesnoth versions: 1.12 and 1.13
+Wesnoth versions: 1.12 and 1.14
 
 Tips
 ----
