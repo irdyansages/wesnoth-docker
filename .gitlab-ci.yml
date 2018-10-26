@@ -37,6 +37,8 @@ stages:
 
 deploy:wesnoth1.14:
   <<: *deploy_job
+  after_script:
+  - docker push konecnyjakub/wesnoth:latest
   variables:
     VERSION: "1.14"
 
