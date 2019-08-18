@@ -1,7 +1,5 @@
 FROM ubuntu:16.04
 
-MAINTAINER Jakub Konečný <jakub.konecny2@centrum.cz>
-
 ENV TERM xterm
 ENV USER_UID 1000
 ENV USER_NAME me
@@ -14,11 +12,12 @@ RUN apt-get update && apt-get dist-upgrade -y && \
         wesnoth-1.14-core \
         wesnoth-1.14-tools \
         python3 \
-        python3-enchant
-RUN apt-get clean -y
-RUN apt-get autoclean -y
-RUN apt-get autoremove -y
-RUN rm -rf /var/lib/log/* /tmp/* /var/tmp/*
+        python3-enchant && \
+    # CLEAN UP
+    apt-get clean -y && \
+    apt-get autoclean -y && \
+    apt-get autoremove -y && \
+    rm -rf /var/lib/log/* /tmp/* /var/tmp/*
 
 COPY scripts/* /usr/local/bin/
 
