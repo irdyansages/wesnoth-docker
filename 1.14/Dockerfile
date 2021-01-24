@@ -13,6 +13,7 @@ RUN apt-get update && apt-get dist-upgrade -y && \
         wesnoth-1.14-tools \
         python3 \
         python3-enchant && \
+    ln -s /usr/share/games/wesnoth/1.14/data/tools/wmllint /usr/local/bin/wmllint && \
     # CLEAN UP
     apt-get clean -y && \
     apt-get autoclean -y && \
