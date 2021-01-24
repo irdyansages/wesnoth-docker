@@ -19,7 +19,7 @@ stages:
   - docker push konecnyjakub/wesnoth:$VERSION
 
   only:
-    - master@konecnyjakub/wesnoth-docker
+    - master@irdyansages/wesnoth-docker
 
 .job_template: &build_job
   stage: build
@@ -33,7 +33,7 @@ stages:
   - docker build -t konecnyjakub/wesnoth -f $VERSION/Dockerfile $VERSION
 
   except:
-    - master@konecnyjakub/wesnoth-docker
+    - master@irdyansages/wesnoth-docker
 
 deploy:wesnoth1.14:
   <<: *deploy_job
