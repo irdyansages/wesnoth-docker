@@ -35,17 +35,6 @@ stages:
   except:
     - master@irdyansages/wesnoth-docker
 
-deploy:wesnoth1.14:
-  <<: *deploy_job
-  after_script:
-  variables:
-    VERSION: "1.14"
-
-build:wesnoth1.14:
-  <<: *build_job
-  variables:
-    VERSION: "1.14"
-
 deploy:wesnoth1.16:
   <<: *deploy_job
   after_script:
