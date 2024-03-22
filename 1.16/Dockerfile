@@ -18,13 +18,12 @@ RUN useradd -ms /bin/bash -u $USER_UID $USER_NAME && \
     ln -s /usr/share/games/wesnoth/1.16/data/tools/wmllint /usr/local/bin/wmllint && \  
     ln -s /usr/share/games/wesnoth/1.16/data/tools/wmlindent /usr/local/bin/wmlindent && \    
     ln -s /usr/share/games/wesnoth/1.16/data/tools/wmlxgettext /usr/local/bin/wmlxgettext && \
+    ln -s /usr/share/games/wesnoth/1.16/data/tools/wesnoth_addon_manager /usr/local/bin/wesnoth_addon_manager && \
     # CLEAN UP
     apt-get clean -y && \
     apt-get autoclean -y && \
     apt-get autoremove -y && \
     rm -rf /var/lib/log/* /tmp/* /var/tmp/*
-
-COPY scripts/* /usr/local/bin/
 
 USER me
 
