@@ -15,9 +15,9 @@ RUN useradd -ms /bin/bash -u $USER_UID $USER_NAME && \
         wesnoth-tools \
         python3 \
         python3-enchant && \
-    ln -s /usr/share/games/wesnoth/1.18/data/tools/wmllint /usr/local/bin/wmllint && \  
-    ln -s /usr/share/games/wesnoth/1.18/data/tools/wmlindent /usr/local/bin/wmlindent && \    
-    ln -s /usr/share/games/wesnoth/1.18/data/tools/wmlxgettext /usr/local/bin/wmlxgettext && \
+    ln -s /usr/share/games/wesnoth/data/tools/wmllint /usr/local/bin/wmllint && \  
+    ln -s /usr/share/games/wesnoth/data/tools/wmlindent /usr/local/bin/wmlindent && \    
+    ln -s /usr/share/games/wesnoth/data/tools/wmlxgettext /usr/local/bin/wmlxgettext && \
     # CLEAN UP
     apt-get clean -y && \
     apt-get autoclean -y && \
