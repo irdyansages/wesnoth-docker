@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-/usr/share/games/wesnoth/1.18/data/tools/wesnoth_addon_manager -d "$@"
+/usr/share/games/wesnoth/data/tools/wesnoth_addon_manager -d "$@"
