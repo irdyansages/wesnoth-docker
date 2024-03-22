@@ -37,6 +37,9 @@ stages:
 
 deploy:wesnoth1.16:
   <<: *deploy_job
+  environment:
+    name: dockerhub
+    url: https://hub.docker.com/r/konecnyjakub/wesnoth/
   after_script:
   - docker push konecnyjakub/wesnoth:latest
   variables:
