@@ -37,15 +37,25 @@ stages:
 
 deploy:wesnoth1.16:
   <<: *deploy_job
+  variables:
+    VERSION: "1.16"
+
+deploy:wesnoth1.18:
+  <<: *deploy_job
   environment:
     name: dockerhub
     url: https://hub.docker.com/r/konecnyjakub/wesnoth/
   after_script:
   - docker push konecnyjakub/wesnoth:latest
   variables:
-    VERSION: "1.16"
+    VERSION: "1.18"
 
 build:wesnoth1.16:
   <<: *build_job
   variables:
     VERSION: "1.16"
+
+build:wesnoth1.18:
+  <<: *build_job
+  variables:
+    VERSION: "1.18"
