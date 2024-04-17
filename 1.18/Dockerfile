@@ -14,7 +14,8 @@ RUN useradd -ms /bin/bash -u $USER_UID $USER_NAME && \
         wesnoth-core \
         wesnoth-tools \
         python3 \
-        python3-enchant && \
+        python3-enchant \
+        aspell-en && \
     ln -s /usr/share/games/wesnoth/data/tools/wmllint /usr/local/bin/wmllint && \  
     ln -s /usr/share/games/wesnoth/data/tools/wmlindent /usr/local/bin/wmlindent && \    
     ln -s /usr/share/games/wesnoth/data/tools/wmlxgettext /usr/local/bin/wmlxgettext && \
