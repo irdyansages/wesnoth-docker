@@ -40,6 +40,7 @@ deploy:wesnoth1.18:
   environment:
     name: dockerhub
     url: https://hub.docker.com/r/konecnyjakub/wesnoth/
+    deployment_tier: production
   after_script:
   - docker push konecnyjakub/wesnoth:latest
   variables:
